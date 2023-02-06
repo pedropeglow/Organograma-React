@@ -6,14 +6,31 @@ import "./Formulario.css";
 const Formulario = () => {
   const posicoes = ["Goleiro", "Defesa", "Meio Campo", "Ataque"];
 
+  const aoSalvar = (evento) => {
+    evento.preventDefault();
+    console.log("form foi submetido");
+  };
+
   return (
     <section className="formulario">
-      <form>
+      <form onSubmit={aoSalvar}>
         <h2>Preencha os dados para criar o card do Jogador</h2>
-        <CampoTexto label="Nome" placeholder="Digite o Nome" />
-        <CampoTexto label="Posição" placeholder="Digite a Posição" />
-        <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
-        <ListaSuspensa label="Posição" posicoes={posicoes} />
+        <CampoTexto
+          obrigatorio={true}
+          label="Nome"
+          placeholder="Digite o Nome"
+        />
+        <CampoTexto
+          obrigatorio={true}
+          label="Posição"
+          placeholder="Digite a Posição"
+        />
+        <CampoTexto
+          obrigatorio={true}
+          label="Imagem"
+          placeholder="Digite o endereço da imagem"
+        />
+        <ListaSuspensa obrigatorio={true} label="Posição" posicoes={posicoes} />
         <Botao>Criar Card</Botao>
       </form>
     </section>
