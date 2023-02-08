@@ -4,7 +4,7 @@ import CampoTexto from "../CampoTexto";
 import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const posicoes = ["Goleiro", "Defesa", "Meio Campo", "Ataque"];
 
   const [nome, setNome] = useState("");
@@ -13,7 +13,11 @@ const Formulario = () => {
 
   const aoSalvar = (evento) => {
     evento.preventDefault();
-    console.log("form foi submetido", nome, posicao, imagem);
+    props.aoJogadorCadastrado({
+      nome,
+      imagem,
+      posicao,
+    });
   };
 
   return (
