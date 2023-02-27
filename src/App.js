@@ -39,10 +39,14 @@ function App() {
       <Formulario
         aoJogadorCadastrado={(jogador) => aoNovoJogadorAdicionado(jogador)}
       />
-      <Time nome="Goleiro" />
-      <Time nome="Defensor" />
-      <Time nome="Meio-Campo" />
-      <Time nome="Ataque" />
+      {posicoes.map((posicao) => (
+        <Time
+          key={posicao.nome}
+          nome={posicao.nome}
+          corPrimaria={posicao.corPrimaria}
+          corSecundaria={posicao.corSecundaria}
+        />
+      ))}
     </div>
   );
 }
