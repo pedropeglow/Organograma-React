@@ -37,10 +37,12 @@ function App() {
     <div className="App">
       <Banner />
       <Formulario
+        posicoes={posicoes.map((posicao) => posicao.nome)}
         aoJogadorCadastrado={(jogador) => aoNovoJogadorAdicionado(jogador)}
       />
       {posicoes.map((posicao) => (
         <Time
+          times={posicao.nome}
           key={posicao.nome}
           nome={posicao.nome}
           corPrimaria={posicao.corPrimaria}

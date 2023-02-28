@@ -5,8 +5,6 @@ import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
 const Formulario = (props) => {
-  const posicoes = ["Goleiro", "Defesa", "Meio Campo", "Ataque"];
-
   const [nome, setNome] = useState("");
   const [imagem, setImagem] = useState("");
   const [posicao, setPosicao] = useState("");
@@ -44,7 +42,7 @@ const Formulario = (props) => {
           aoAlterado={(valor) => setPosicao(valor)}
           obrigatorio={true}
           label="Posição"
-          posicoes={posicoes}
+          posicoes={props.posicoes}
         />
         <Botao>Criar Card</Botao>
       </form>
