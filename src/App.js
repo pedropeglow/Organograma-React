@@ -44,7 +44,7 @@ function App() {
       {posicoes.map((posicao) => (
         <Time
           jogadores={jogadores.filter(
-            (jogador) => jogador.posicao == posicao.nome
+            (jogador) => jogador.posicao === posicao.nome
           )}
           key={posicao.nome}
           nome={posicao.nome}
