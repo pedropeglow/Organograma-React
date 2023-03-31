@@ -28,7 +28,13 @@ function App() {
     },
   ];
 
-  const [jogadores, setJogadores] = useState([]);
+  const jogador = {
+    nome: "Neymar",
+    imagem:
+      "https://conteudo.cbf.com.br/cdn/thumbs/250x0/202211/20221121154220_923.jpeg",
+    posicao: "Ataque",
+  };
+  const [jogadores, setJogadores] = useState([jogador]);
 
   const aoNovoJogadorAdicionado = (jogador) => {
     setJogadores([...jogadores, jogador]);
