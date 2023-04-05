@@ -40,6 +40,10 @@ function App() {
     setJogadores([...jogadores, jogador]);
   };
 
+  function deletarJogador() {
+    console.log("deletando jogador");
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -56,6 +60,7 @@ function App() {
           nome={posicao.nome}
           corPrimaria={posicao.corPrimaria}
           corSecundaria={posicao.corSecundaria}
+          aoDeletar={deletarJogador}
         />
       ))}
       <Rodape />
