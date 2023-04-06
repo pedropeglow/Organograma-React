@@ -2,7 +2,7 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import Formulario from "./components/Formulario";
 import Rodape from "./components/Rodape";
-import Time from "./components/Time";
+import Posicao from "./components/Posicao";
 
 function App() {
   const posicoes = [
@@ -52,7 +52,7 @@ function App() {
         aoJogadorCadastrado={(jogador) => aoNovoJogadorAdicionado(jogador)}
       />
       {posicoes.map((posicao) => (
-        <Time
+        <Posicao
           jogadores={jogadores.filter(
             (jogador) => jogador.posicao === posicao.nome
           )}
