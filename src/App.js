@@ -1,34 +1,36 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Banner from "./components/Banner";
 import Formulario from "./components/Formulario";
 import Rodape from "./components/Rodape";
 import Posicao from "./components/Posicao";
 
 function App() {
-  const posicoes = [
+  const [posicoes, setPosicoes] = useState([
     {
+      id: uuidv4(),
       nome: "Goleiro",
-      corPrimaria: "#57c278",
-      corSecundaria: "#d9f7e9",
+      cor: "#d9f7e9",
     },
     {
+      id: uuidv4(),
       nome: "Defensor",
-      corPrimaria: "#02CFFA",
-      corSecundaria: "#e8f8ff",
+      cor: "#e8f8ff",
     },
     {
+      id: uuidv4(),
       nome: "Meio-Campo",
-      corPrimaria: "#A6D157",
-      corSecundaria: "#f0f8e2",
+      cor: "#f0f8e2",
     },
     {
+      id: uuidv4(),
       nome: "Ataque",
-      corPrimaria: "#E06869",
-      corSecundaria: "#FDE7E8",
+      cor: "#7fff5c",
     },
-  ];
+  ]);
 
   const jogador = {
+    id: uuidv4(),
     nome: "Neymar",
     imagem:
       "https://conteudo.cbf.com.br/cdn/thumbs/250x0/202211/20221121154220_923.jpeg",
@@ -44,6 +46,18 @@ function App() {
     console.log("deletando jogador");
   }
 
+  function mudarCorDaPosicao(cor, id) {
+    setPosicoes(
+      posicoes.map((posicao) => {
+        console.log(posicoes);
+        if (posicao.id === id) {
+          posicao.cor = cor;
+        }
+        return posicao;
+      })
+    );
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -57,9 +71,11 @@ function App() {
             (jogador) => jogador.posicao === posicao.nome
           )}
           key={posicao.nome}
+          mudarCor={mudarCorDaPosicao}
           nome={posicao.nome}
+          id={posicao.id}
           corPrimaria={posicao.corPrimaria}
-          corSecundaria={posicao.corSecundaria}
+          cor={posicao.cor}
           aoDeletar={deletarJogador}
         />
       ))}
