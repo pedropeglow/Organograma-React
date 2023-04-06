@@ -39,11 +39,13 @@ function App() {
   const [jogadores, setJogadores] = useState([jogador]);
 
   const aoNovoJogadorAdicionado = (jogador) => {
+    jogador.id = uuidv4();
     setJogadores([...jogadores, jogador]);
   };
 
-  function deletarJogador() {
-    console.log("deletando jogador");
+  function deletarJogador(id) {
+    console.log("ID excluido", id);
+    setJogadores(jogadores.filter((jogador) => jogador.id !== id));
   }
 
   function mudarCorDaPosicao(cor, id) {
@@ -71,6 +73,7 @@ function App() {
             (jogador) => jogador.posicao === posicao.nome
           )}
           key={posicao.nome}
+          posicao={posicao}
           mudarCor={mudarCorDaPosicao}
           nome={posicao.nome}
           id={posicao.id}

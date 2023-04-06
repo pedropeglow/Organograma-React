@@ -2,30 +2,28 @@ import Jogador from "../Jogador";
 import "./Posicao.css";
 import hexToRgba from "hex-to-rgba";
 
-const Posicao = (props) => {
-  console.log(props);
-  return props.jogadores.length > 0 ? (
+const Posicao = ({ posicao, jogadores, mudarCor, aoDeletar }) => {
+  console.log(posicao);
+  return jogadores.length > 0 ? (
     <section
       className="posicao"
-      style={{ backgroundColor: hexToRgba(props.cor, "0.6") }}
+      style={{ backgroundColor: hexToRgba(posicao.cor, "0.6") }}
     >
       <input
-        onChange={(evento) => props.mudarCor(evento.target.value, props.id)}
-        value={props.cor}
+        onChange={(evento) => mudarCor(evento.target.value, posicao.id)}
+        value={posicao.cor}
         type="color"
         className="input-cor"
       />
-      <h3 style={{ borderColor: props.cor }}>{props.nome}</h3>
+      <h3 style={{ borderColor: posicao.cor }}>{posicao.nome}</h3>
       <div className="posicoes">
-        {props.jogadores.map((jogador) => {
+        {jogadores.map((jogador) => {
           return (
             <Jogador
-              corDeFundo={props.cor}
+              corDeFundo={posicao.cor}
+              jogador={jogador}
               key={jogador.nome}
-              nome={jogador.nome}
-              posicao={jogador.posicao}
-              imagem={jogador.imagem}
-              aoDeletar={props.aoDeletar}
+              aoDeletar={aoDeletar}
             />
           );
         })}

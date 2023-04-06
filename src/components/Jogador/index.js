@@ -1,20 +1,21 @@
 import "./Jogador.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 
-const Jogador = ({ nome, imagem, posicao, corDeFundo, aoDeletar }) => {
+const Jogador = ({ jogador, corDeFundo, aoDeletar }) => {
+  console.log("ID JOGADOR", jogador.id);
   return (
     <div className="jogador">
       <AiFillCloseCircle
         size={25}
         className="deletar"
-        onClick={aoDeletar}
+        onClick={() => aoDeletar(jogador.id)}
       ></AiFillCloseCircle>
       <div className="cabecalho" style={{ backgroundColor: corDeFundo }}>
-        <img src={imagem} alt="Imagem de jogador"></img>
+        <img src={jogador.imagem} alt="Imagem de jogador"></img>
       </div>
       <div className="rodape">
-        <h4>{nome}</h4>
-        <h5>{posicao}</h5>
+        <h4>{jogador.nome}</h4>
+        <h5>{jogador.posicao}</h5>
       </div>
     </div>
   );
