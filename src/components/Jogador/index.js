@@ -2,7 +2,6 @@ import "./Jogador.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 const Jogador = ({ jogador, corDeFundo, aoDeletar }) => {
-  console.log("ID JOGADOR", jogador.id);
   return (
     <div className="jogador">
       <AiFillCloseCircle

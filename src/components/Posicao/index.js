@@ -3,7 +3,6 @@ import "./Posicao.css";
 import hexToRgba from "hex-to-rgba";
 
 const Posicao = ({ posicao, jogadores, mudarCor, aoDeletar }) => {
-  console.log(posicao);
   return jogadores.length > 0 ? (
     <section
       className="posicao"

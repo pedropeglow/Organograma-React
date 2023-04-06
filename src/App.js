@@ -44,14 +44,12 @@ function App() {
   };
 
   function deletarJogador(id) {
-    console.log("ID excluido", id);
     setJogadores(jogadores.filter((jogador) => jogador.id !== id));
   }
 
   function mudarCorDaPosicao(cor, id) {
     setPosicoes(
       posicoes.map((posicao) => {
-        console.log(posicoes);
         if (posicao.id === id) {
           posicao.cor = cor;
         }
