@@ -58,10 +58,15 @@ function App() {
     );
   }
 
+  function cadastrarPosicao(novaPosicao) {
+    setPosicoes([...posicoes, { ...novaPosicao, id: uuidv4() }]);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Formulario
+        cadastrarPosicao={cadastrarPosicao}
         posicoes={posicoes.map((posicao) => posicao.nome)}
         aoJogadorCadastrado={(jogador) => aoNovoJogadorAdicionado(jogador)}
       />
