@@ -2,7 +2,7 @@ import Jogador from "../Jogador";
 import "./Posicao.css";
 import hexToRgba from "hex-to-rgba";
 
-const Posicao = ({ posicao, jogadores, mudarCor, aoDeletar }) => {
+const Posicao = ({ posicao, jogadores, mudarCor, aoDeletar, aoFavoritar }) => {
   return jogadores.length > 0 ? (
     <section
       className="posicao"
@@ -19,6 +19,7 @@ const Posicao = ({ posicao, jogadores, mudarCor, aoDeletar }) => {
         {jogadores.map((jogador) => {
           return (
             <Jogador
+              aoFavoritar={aoFavoritar}
               corDeFundo={posicao.cor}
               jogador={jogador}
               key={jogador.nome}

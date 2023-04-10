@@ -1,7 +1,16 @@
 import "./Jogador.css";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
-const Jogador = ({ jogador, corDeFundo, aoDeletar }) => {
+const Jogador = ({ jogador, corDeFundo, aoDeletar, aoFavoritar }) => {
+  function favoritar() {
+    aoFavoritar(jogador.id);
+  }
+
+  const propsFavorito = {
+    size: 25,
+    onclick: favoritar,
+  };
+
   return (
     <div className="jogador">
       <AiFillCloseCircle
@@ -15,6 +24,17 @@ const Jogador = ({ jogador, corDeFundo, aoDeletar }) => {
       <div className="rodape">
         <h4>{jogador.nome}</h4>
         <h5>{jogador.posicao}</h5>
+        <div className="favoritar">
+          {jogador.favorito ? (
+            <AiFillHeart
+              {...propsFavorito}
+              color="#ff0000"
+              onClick={favoritar}
+            />
+          ) : (
+            <AiOutlineHeart {...propsFavorito} onClick={favoritar} />
+          )}
+        </div>
       </div>
     </div>
   );

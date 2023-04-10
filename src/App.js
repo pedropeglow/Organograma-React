@@ -31,6 +31,7 @@ function App() {
 
   const jogador = {
     id: uuidv4(),
+    favorito: false,
     nome: "Neymar",
     imagem:
       "https://conteudo.cbf.com.br/cdn/thumbs/250x0/202211/20221121154220_923.jpeg",
@@ -45,6 +46,15 @@ function App() {
 
   function deletarJogador(id) {
     setJogadores(jogadores.filter((jogador) => jogador.id !== id));
+  }
+
+  function resolverFavorito(id) {
+    setJogadores(
+      jogadores.map((jogador) => {
+        if (jogador.id === id) jogador.favorito = !jogador.favorito;
+        return jogador;
+      })
+    );
   }
 
   function mudarCorDaPosicao(cor, id) {
@@ -75,6 +85,7 @@ function App() {
           jogadores={jogadores.filter(
             (jogador) => jogador.posicao === posicao.nome
           )}
+          aoFavoritar={resolverFavorito}
           key={posicao.nome}
           posicao={posicao}
           mudarCor={mudarCorDaPosicao}
