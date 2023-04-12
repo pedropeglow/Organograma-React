@@ -29,15 +29,23 @@ function App() {
     },
   ]);
 
-  const jogador = {
+  const jogador = [{
     id: uuidv4(),
     favorito: false,
     nome: "Neymar",
     imagem:
       "https://conteudo.cbf.com.br/cdn/thumbs/250x0/202211/20221121154220_923.jpeg",
     posicao: "Ataque",
-  };
-  const [jogadores, setJogadores] = useState([jogador]);
+  },
+  {
+    id: uuidv4(),
+    favorito: true,
+    nome: "Vini JR",
+    imagem:
+      "https://conteudo.cbf.com.br/cdn/thumbs/250x0/202211/20221121154129_321.jpeg",
+    posicao: "Ataque",
+  }];
+  const [jogadores, setJogadores] = useState(jogador);
 
   const aoNovoJogadorAdicionado = (jogador) => {
     jogador.id = uuidv4();
